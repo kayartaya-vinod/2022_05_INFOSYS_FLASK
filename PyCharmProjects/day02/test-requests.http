@@ -82,6 +82,7 @@ Content-Type: application/json
 # all other fields will be updated with above content
 # id must be taken only from path variable (uri-segment)
 # response should get the updated version of the resource, along with id
+# respond with 404 if id is invalid
 
 ###
 PATCH /api/customers/f48045e5-5a5e-4ac6-b102-56cb9822785c
@@ -97,3 +98,4 @@ Content-Type: application/json
 
 # Updates only the above fields, retaining all origin data in the database.
 # response should get the updated data (with all fields in it)
+# respond with 404 if id is invalid
