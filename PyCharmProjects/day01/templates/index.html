@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management System</title>
+    <link type="text/css" rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+</head>
+<body>
+<div class="alert alert-primary">
+  <div class="container">
+    <h1>Product Management System</h1>
+  </div>
+</div>
+<div class="container">
+    <div>
+        <a href="/" class="btn btn-link">Home</a> |
+        <a href="/add-product" class="btn btn-link">Add a product</a> |
+        <a href="/product-list" class="btn btn-link">Product list</a> |
+        <a href="/about-us" class="btn btn-link">About us</a>
+    </div>
+    {% block content %}
+    <!-- this part will be replaced with the sub-templates
+     (such as about_us.html) -->
+    {% endblock %}
+</div>
+</body>
+</html>

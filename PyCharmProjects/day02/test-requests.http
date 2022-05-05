@@ -1,0 +1,99 @@
+GET /api/customers/this-is-an-invalid-id
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers/4b517ec6-d76a-4f97-82ee-de6b3e9d19f3
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?_page=2
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?_limit=2
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?_limit=5&_page=3
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?_limit=asd&_page=asd
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?email=vinod123@vinod.co
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?phone=3933114624
+Host: localhost:8080
+Accept: application/json
+
+###
+POST /api/customers
+Host: localhost:8080
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstname": "Vinod",
+  "lastname": "Kayartaya",
+  "gender": "Male",
+  "email": "vinod123@vinod.co",
+  "phone": "9844083934",
+  "address": "1st crs, 1st main, ISRO lyt",
+  "city": "Bangalore",
+  "state": "Karnataka",
+  "country": "India",
+  "avatar": "https://avatars.githubusercontent.com/u/14976510?v=4"
+}
+
+###
+PUT /api/customers/f48045e5-5a5e-4ac6-b102-56cb9822785c
+Host: localhost:8080
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstname": "Vinod",
+  "lastname": "Kayartaya",
+  "gender": "Male",
+  "email": "vinod.kayartaya@xmpl.com",
+  "phone": "8026661911",
+  "address": "1st crs, 1st main, ISRO lyt",
+  "country": "India",
+  "avatar": "https://avatars.githubusercontent.com/u/14976510?v=4"
+}
+
+# city and state will be update as NULL in the DB (they are not part of the payload being sent)
+# all other fields will be updated with above content
+# id must be taken only from path variable (uri-segment)
+# response should get the updated version of the resource, along with id
+
+###
+PATCH /api/customers/f48045e5-5a5e-4ac6-b102-56cb9822785c
+Host: localhost:8080
+Accept: application/json
+Content-Type: application/json
+
+{
+  "lastname": "Kayartaya",
+  "city": "Bengaluru",
+  "state": "Karnataka"
+}
+
+# Updates only the above fields, retaining all origin data in the database.
+# response should get the updated data (with all fields in it)
