@@ -36,8 +36,8 @@ class Customer:
             data))
         return Customer(**d)
 
-    def toJSON(self):
-        return json.dumps(self.__dict__)
+    def update_from(self, data):
+        self.__dict__.update(data)
 
     def __str__(self):
         return f'Customer (firstname="{self.firstname}", lastname="{self.lastname}, email="{self.email}")'

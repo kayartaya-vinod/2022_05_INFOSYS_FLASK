@@ -3,7 +3,7 @@ Host: localhost:8080
 Accept: application/json
 
 ###
-GET /api/customers/4b517ec6-d76a-4f97-82ee-de6b3e9d19f3
+GET /api/customers/9e61dcdd-6e71-4ae4-baf8-2db3d84f8a0a
 Host: localhost:8080
 Accept: application/json
 
@@ -52,8 +52,8 @@ Content-Type: application/json
   "firstname": "Vinod",
   "lastname": "Kayartaya",
   "gender": "Male",
-  "email": "vinod123@vinod.co",
-  "phone": "9844083934",
+  "email": "vinod1234@vinod.co",
+  "phone": "9844083943",
   "address": "1st crs, 1st main, ISRO lyt",
   "city": "Bangalore",
   "state": "Karnataka",
@@ -62,20 +62,22 @@ Content-Type: application/json
 }
 
 ###
-PUT /api/customers/f48045e5-5a5e-4ac6-b102-56cb9822785c
+PUT /api/customers/9e61dcdd-6e71-4ae4-baf8-2db3d84f8a0a
 Host: localhost:8080
 Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Vinod",
-  "lastname": "Kayartaya",
-  "gender": "Male",
-  "email": "vinod.kayartaya@xmpl.com",
-  "phone": "8026661911",
-  "address": "1st crs, 1st main, ISRO lyt",
+  "firstname": "Townie",
+  "gender": "Agender",
+  "phone": "5204347062",
+  "city": "Bangalore",
   "country": "India",
-  "avatar": "https://avatars.githubusercontent.com/u/14976510?v=4"
+  "email": "tcron7@utexas.edu",
+  "lastname": "Cron",
+  "address": "13 Iowa Pass",
+  "state": "Karnataka",
+  "avatar": "https://robohash.org/utnullatemporibus.png?size=50x50&set=set1"
 }
 
 # city and state will be update as NULL in the DB (they are not part of the payload being sent)
@@ -91,11 +93,19 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "lastname": "Kayartaya",
+  "lastname": "Rao",
   "city": "Bengaluru",
-  "state": "Karnataka"
+  "state": null
 }
 
 # Updates only the above fields, retaining all origin data in the database.
 # response should get the updated data (with all fields in it)
 # respond with 404 if id is invalid
+# id is immutable; should not be changed!
+
+###
+DELETE /api/customers/4f13966b-6027-4db5-aaf1-73d0b2bde0f6
+Host: localhost:8080
+Accept: application/json
+
+###

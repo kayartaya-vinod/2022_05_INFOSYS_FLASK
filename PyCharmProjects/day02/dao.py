@@ -33,10 +33,25 @@ class CustomerDao:
             return customer
 
     def update_customer(self, customer):
-        pass
+        cmd = 'update customers set firstname=?, lastname=?, gender=?, email=?, phone=?, address=?, ' \
+              'city=?, state=?, country=?, avatar=? where id=?'
+        params = customer.as_tuple()
+        params = params[1:]+(params[0], )  # rotate such that first element becomes the last element
+        with self.get_connection() as conn:
+            cur = conn.cursor()
+            cur.execute(cmd, params)
+            conn.commit()
+            cur.close()
+            return customer
 
     def delete_by_id(self, customer_id):
-        pass
+        cmd = 'delete from customers where id = ?'  # hard delete;
+        # soft delete -> 'update customers set is_active=0 where id=?'
+        with self.get_connection() as conn:
+            cur = conn.cursor()
+            cur.execute(cmd, [customer_id])
+            conn.commit()
+            cur.close()
 
     def find_all(self, page_no=1, page_size=10):
         cmd = 'select * from customers limit ? offset ?'

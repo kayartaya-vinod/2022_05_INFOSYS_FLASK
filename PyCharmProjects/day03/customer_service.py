@@ -1,7 +1,6 @@
 import json
 from flask import Flask, Response, request
-from dao import CustomerDao
-from model import CustomerJsonEncoder, Customer
+from dao import CustomerDao, CustomerJsonEncoder, Customer
 from flask_cors import CORS  #, cross_origin
 
 app = Flask(__name__)
@@ -116,10 +115,13 @@ def handle_get_all_customers():
 
 @app.route('/api/customers/<string:customer_id>', methods=['GET'])
 def handle_get_one_customer(customer_id):
+    print(f'customer_id is {customer_id}')
     cust = dao.find_by_id(customer_id)
     if cust is None:
         err = {'message': f'No data found for customer id {customer_id}'}
         return create_response(err, 404)
+
+    print(f'cust is {cust.__dict__}')
     return create_response(cust)
 
 
