@@ -76,9 +76,11 @@ class CustomerListResource(Resource):
         if 'city' in request.args:
             print(f'city = {request.args["city"]}')
             customers = Customer.query.filter(Customer.city == request.args['city']).limit(limit).offset(offset).all()
+            customer_count = Customer.query.filter(Customer.city == request.args['city']).count()
         else:
             customers = Customer.query.limit(limit).offset(offset).all()
-        return customer_list_schema.dump(customers)
+            customer_count = Customer.query.count()
+        return {'customers': customer_list_schema.dump(customers), 'count': customer_count}
 
     def post(self):
         try:

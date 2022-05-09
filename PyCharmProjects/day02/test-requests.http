@@ -13,7 +13,7 @@ Host: localhost:8080
 Accept: application/json
 
 ###
-GET /api/customers?city=Dashahe&_limit=1&_page=2
+GET /api/customers?city=Dashahe
 Host: localhost:8080
 Accept: application/json
 
