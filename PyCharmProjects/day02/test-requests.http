@@ -3,12 +3,17 @@ Host: localhost:8080
 Accept: application/json
 
 ###
-GET /api/customers/9e61dcdd-6e71-4ae4-baf8-2db3d84f8a0a
+GET /api/customers/cc3247e4-1068-4dad-a250-26f0a8a8db36
 Host: localhost:8080
 Accept: application/json
 
 ###
 GET /api/customers
+Host: localhost:8080
+Accept: application/json
+
+###
+GET /api/customers?city=Dashahe&_limit=1&_page=2
 Host: localhost:8080
 Accept: application/json
 
@@ -33,12 +38,12 @@ Host: localhost:8080
 Accept: application/json
 
 ###
-GET /api/customers?email=vinod123@vinod.co
+GET /api/customers?email=vinod12345@vinod.co
 Host: localhost:8080
 Accept: application/json
 
 ###
-GET /api/customers?phone=3933114624
+GET /api/customers?phone=9844083945
 Host: localhost:8080
 Accept: application/json
 
@@ -49,11 +54,11 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Vinod",
+  "firstname": "Surya",
   "lastname": "Kayartaya",
   "gender": "Male",
-  "email": "vinod1234@vinod.co",
-  "phone": "9844083943",
+  "email": "surya12340@vinod.co",
+  "phone": "9844083940",
   "address": "1st crs, 1st main, ISRO lyt",
   "city": "Bangalore",
   "state": "Karnataka",
@@ -68,15 +73,13 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Townie",
-  "gender": "Agender",
+  "firstname": "Ramesh",
+  "gender": "Kumar",
   "phone": "5204347062",
-  "city": "Bangalore",
   "country": "India",
   "email": "tcron7@utexas.edu",
   "lastname": "Cron",
   "address": "13 Iowa Pass",
-  "state": "Karnataka",
   "avatar": "https://robohash.org/utnullatemporibus.png?size=50x50&set=set1"
 }
 
@@ -87,15 +90,15 @@ Content-Type: application/json
 # respond with 404 if id is invalid
 
 ###
-PATCH /api/customers/f48045e5-5a5e-4ac6-b102-56cb9822785c
+PATCH /api/customers/cc3247e4-1068-4dad-a250-26f0a8a8db36
 Host: localhost:8080
 Accept: application/json
 Content-Type: application/json
 
 {
-  "lastname": "Rao",
-  "city": "Bengaluru",
-  "state": null
+  "city": "Chennai",
+  "state": "Tamilnadu",
+  "country": "India"
 }
 
 # Updates only the above fields, retaining all origin data in the database.
@@ -104,7 +107,7 @@ Content-Type: application/json
 # id is immutable; should not be changed!
 
 ###
-DELETE /api/customers/4f13966b-6027-4db5-aaf1-73d0b2bde0f6
+DELETE /api/customers/9e61dcdd-6e71-4ae4-baf8-2db3d84f8a0a
 Host: localhost:8080
 Accept: application/json
 
